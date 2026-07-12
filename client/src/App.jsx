@@ -25,6 +25,7 @@ export default function App() {
       <Route
         path="/*"
         element={
+          <ProtectedRoute>
             <div className="flex h-screen bg-ink-900">
               <Sidebar />
 
@@ -41,6 +42,7 @@ export default function App() {
                 </Routes>
               </main>
             </div>
+          </ProtectedRoute>
         }
       />
     </Routes>
