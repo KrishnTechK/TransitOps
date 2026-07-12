@@ -34,7 +34,7 @@ exports.login = async (req, res) => {
       process.env.JWT_SECRET,
       {
         expiresIn: "1d",
-      }
+      },
     );
 
     res.status(200).json({
@@ -47,7 +47,6 @@ exports.login = async (req, res) => {
         role: user.role,
       },
     });
-
   } catch (error) {
     console.log(error);
     res.status(500).json({
