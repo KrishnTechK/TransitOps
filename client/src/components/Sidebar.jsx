@@ -25,7 +25,7 @@ export default function Sidebar() {
           {navStops.map((stop) => (
             <li key={stop.key} className="relative">
               <NavLink
-                to={stop.key === 'dashboard' ? '/' : `/${stop.key}`}
+                to={stop.key === 'dashboard' ? '/dashboard' : `/${stop.key}`}
                 className={({ isActive }) =>
                   `group flex items-center gap-3.5 pl-0.5 pr-3 py-2.5 rounded-md text-[13.5px] transition-colors ${
                     isActive
