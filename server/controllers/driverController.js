@@ -1,9 +1,8 @@
 const Driver = require("../models/Driver");
 
-// =============================
 // GET All Drivers
 // GET /drivers
-// =============================
+
 const getDrivers = async (req, res) => {
   try {
     const drivers = await Driver.find().populate("assignedVehicle");
@@ -21,13 +20,14 @@ const getDrivers = async (req, res) => {
   }
 };
 
-// =============================
 // GET Single Driver
 // GET /drivers/:id
-// =============================
+
 const getDriverById = async (req, res) => {
   try {
-    const driver = await Driver.findById(req.params.id).populate("assignedVehicle");
+    const driver = await Driver.findById(req.params.id).populate(
+      "assignedVehicle",
+    );
 
     if (!driver) {
       return res.status(404).json({
@@ -48,10 +48,9 @@ const getDriverById = async (req, res) => {
   }
 };
 
-// =============================
 // CREATE Driver
 // POST /drivers
-// =============================
+
 const createDriver = async (req, res) => {
   try {
     const driver = await Driver.create(req.body);
