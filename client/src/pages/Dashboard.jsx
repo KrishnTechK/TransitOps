@@ -1,49 +1,96 @@
 import React from "react";
 
-import DashboardCards from "../components/dashboard/DashboardCards";
-import VehicleUtilizationChart from "../components/dashboard/VehicleUtilizationChart";
-import VehicleCostChart from "../components/dashboard/VehicleCostChart";
-import FuelCostChart from "../components/dashboard/FuelCostChart";
-import TripChart from "../components/dashboard/TripChart";
-import RecentActivities from "../components/dashboard/RecentActivities";
+// Layout
+import Sidebar from "../components/dashboard/layout/Sidebar";
+import TopNavbar from "../components/dashboard/layout/TopNavbar";
+
+// Cards
+import DashboardCards from "../components/dashboard/cards/DashboardCards";
+
+// Filters
+import DashboardFilters from "../components/dashboard/filters/DashboardFilters";
+
+// Charts
+import VehicleUtilizationChart from "../components/dashboard/charts/VehicleUtilizationChart";
+import VehicleCostChart from "../components/dashboard/charts/VehicleCostChart";
+import FuelCostChart from "../components/dashboard/charts/FuelCostChart";
+import FuelEfficiencyChart from "../components/dashboard/charts/FuelEfficiencyChart";
+import OperationalCostChart from "../components/dashboard/charts/OperationalCostChart";
+import VehicleROIChart from "../components/dashboard/charts/VehicleROIChart";
+import TripChart from "../components/dashboard/charts/TripChart";
+
+// Tables
+import RecentTripsTable from "../components/dashboard/tables/RecentTripsTable";
+import VehicleStatusTable from "../components/dashboard/tables/VehicleStatusTable";
+import RecentActivities from "../components/dashboard/tables/RecentActivities";
 
 const Dashboard = () => {
   return (
-    <div className="min-h-screen bg-gray-100 p-6">
+    <div className="flex min-h-screen bg-gray-100">
+      {/* Sidebar */}
+      <Sidebar />
 
-      {/* Header */}
-      <div className="mb-6">
-        <h1 className="text-3xl font-bold text-gray-800">
-          TransitOps Dashboard
-        </h1>
+      {/* Main Content */}
+      <div className="flex-1 flex flex-col">
 
-        <p className="text-gray-500 mt-1">
-          Fleet Management Analytics Dashboard
-        </p>
+        {/* Top Navigation */}
+        <TopNavbar />
+
+        <main className="p-6 space-y-6">
+
+          {/* Page Header */}
+          <div>
+            <h1 className="text-3xl font-bold text-gray-800">
+              TransitOps Dashboard
+            </h1>
+
+            <p className="text-gray-500 mt-1">
+              Smart Transport Operations Platform
+            </p>
+          </div>
+
+          {/* Filters */}
+          <DashboardFilters />
+
+          {/* KPI Cards */}
+          <DashboardCards />
+
+          {/* Charts */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+
+            <VehicleUtilizationChart />
+
+            <VehicleCostChart />
+
+            <FuelCostChart />
+
+            <FuelEfficiencyChart />
+
+            <OperationalCostChart />
+
+            <VehicleROIChart />
+
+            <TripChart />
+
+          </div>
+
+          {/* Tables */}
+
+          <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
+
+            <RecentTripsTable />
+
+            <VehicleStatusTable />
+
+          </div>
+
+          {/* Recent Activities */}
+
+          <RecentActivities />
+
+        </main>
+
       </div>
-
-      {/* Dashboard Cards */}
-      <DashboardCards />
-
-      {/* Charts */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-6">
-
-        <VehicleUtilizationChart />
-
-        <VehicleCostChart />
-
-        <FuelCostChart />
-
-        <TripChart />
-
-      </div>
-
-      {/* Recent Activities */}
-
-      <div className="mt-6">
-        <RecentActivities />
-      </div>
-
     </div>
   );
 };
