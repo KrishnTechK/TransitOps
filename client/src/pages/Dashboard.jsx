@@ -24,6 +24,10 @@ import RecentTripsTable from "../components/dashboard/tables/RecentTripsTable";
 import VehicleStatusTable from "../components/dashboard/tables/VehicleStatusTable";
 import RecentActivities from "../components/dashboard/tables/RecentActivities";
 
+// Reports
+import ExportCSV from "../components/dashboard/reports/ExportCSV";
+import ExportPDF from "../components/dashboard/reports/ExportPDF";
+
 const Dashboard = () => {
   return (
     <div className="flex min-h-screen bg-gray-100">
@@ -38,24 +42,38 @@ const Dashboard = () => {
 
         <main className="p-6 space-y-6">
 
-          {/* Page Header */}
-          <div>
-            <h1 className="text-3xl font-bold text-gray-800">
-              TransitOps Dashboard
-            </h1>
+          {/* Header */}
+          <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4">
 
-            <p className="text-gray-500 mt-1">
-              Smart Transport Operations Platform
-            </p>
+            <div>
+              <h1 className="text-3xl font-bold text-gray-800">
+                TransitOps Dashboard
+              </h1>
+
+              <p className="text-gray-500 mt-1">
+                Smart Transport Operations Platform
+              </p>
+            </div>
+
+            {/* Export Buttons */}
+
+            <div className="flex gap-3">
+              <ExportCSV />
+              <ExportPDF />
+            </div>
+
           </div>
 
-          {/* Filters */}
+          {/* Dashboard Filters */}
+
           <DashboardFilters />
 
           {/* KPI Cards */}
+
           <DashboardCards />
 
-          {/* Charts */}
+          {/* Analytics Charts */}
+
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
 
             <VehicleUtilizationChart />
