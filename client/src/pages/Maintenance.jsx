@@ -1,10 +1,18 @@
-import PlaceholderPage from '../components/PlaceholderPage';
+import Topbar from "../components/Topbar";
+import MaintenanceLog from "../components/MaintenanceLog";
 
 export default function Maintenance() {
   return (
-    <PlaceholderPage
-      title="Maintenance"
-      blurb="Service schedules, open work orders, and vehicles due for inspection show up here."
-    />
+    <div className="flex-1 flex flex-col overflow-hidden">
+      <Topbar user="Raven K." />
+
+      <main className="flex-1 overflow-y-auto p-6">
+        <h1 className="text-lg font-semibold text-white mb-4">
+          Maintenance
+        </h1>
+
+        <MaintenanceLog />
+      </main>
+    </div>
   );
 }
